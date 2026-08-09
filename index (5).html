@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DRIVERLINE is an independent online magazine for professional drivers and logistics managers in the UK.">
+  <meta name="theme-color" content="#061a3a">
+  <title>DRIVERLINE | The people behind logistics</title>
+
+  <link rel="icon" type="image/png" href="assets/driverline-logo.png">
+
+  <style>
+    :root {
+      --navy: #061a3a;
+      --navy-2: #0a254f;
+      --blue: #1f86ff;
+      --blue-soft: #eaf4ff;
+      --white: #ffffff;
+      --ink: #132238;
+      --muted: #5d6b7d;
+      --line: #dce4ec;
+      --surface: #f5f8fb;
+      --max: 1180px;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(6, 26, 58, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behaviour: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.55;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      background: var(--navy);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      object-fit: cover;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      font-size: 1.12rem;
+      white-space: nowrap;
+    }
+
+    .brand-text .line {
+      color: var(--blue);
+    }
+
+    .header-action {
+      text-decoration: none;
+      background: var(--blue);
+      color: var(--white);
+      padding: 10px 15px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 80% 10%, rgba(31,134,255,0.28), transparent 33%),
+        linear-gradient(145deg, var(--navy), var(--navy-2));
+      color: var(--white);
+      padding: 64px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .kicker {
+      color: #89c2ff;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin: 0 0 12px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(2.3rem, 7vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .hero h1 .line {
+      color: var(--blue);
+    }
+
+    .motto {
+      margin: 24px 0 0;
+      max-width: 760px;
+      font-size: clamp(1.06rem, 2.4vw, 1.35rem);
+      line-height: 1.5;
+      color: #dcecff;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: var(--white);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .section {
+      padding: 56px 0;
+    }
+
+    .section-soft {
+      background: var(--surface);
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+      max-width: 760px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .edition-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .edition-top {
+      background: var(--navy);
+      color: var(--white);
+      padding: 24px;
+    }
+
+    .edition-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      background: rgba(31,134,255,0.18);
+      border: 1px solid rgba(31,134,255,0.55);
+      border-radius: 999px;
+      color: #a8d2ff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .edition-top h3 {
+      margin: 0;
+      font-size: clamp(1.7rem, 5vw, 3.2rem);
+      line-height: 1.05;
+      max-width: 800px;
+    }
+
+    .edition-body {
+      padding: 24px;
+    }
+
+    .edition-body p {
+      margin: 0;
+      max-width: 780px;
+      color: var(--muted);
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .article-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-image {
+      min-height: 185px;
+      padding: 24px;
+      display: flex;
+      align-items: end;
+      background:
+        linear-gradient(135deg, rgba(31,134,255,0.20), rgba(6,26,58,0.03)),
+        var(--blue-soft);
+    }
+
+    .article-image span {
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .article-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .article-category {
+      color: #176fcf;
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .article-content h3 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+      line-height: 1.18;
+    }
+
+    .article-content p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .article-link {
+      margin-top: auto;
+      color: #0d66c2;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .about-copy {
+      font-size: 1.06rem;
+    }
+
+    .about-copy p:first-child {
+      margin-top: 0;
+    }
+
+    .principles {
+      display: grid;
+      gap: 12px;
+    }
+
+    .principle {
+      padding: 16px 18px;
+      border-left: 4px solid var(--blue);
+      background: var(--surface);
+      border-radius: 0 12px 12px 0;
+      font-weight: 700;
+    }
+
+    .pillars {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pillar {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      font-weight: 800;
+    }
+
+    .signup {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 22px;
+      padding: 30px;
+    }
+
+    .signup h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+
+    .signup p {
+      margin: 0 0 22px;
+      color: #dcecff;
+      max-width: 720px;
+    }
+
+    .site-footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      display: grid;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-brand {
+      color: var(--navy);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-brand .line {
+      color: var(--blue);
+    }
+
+    .small-note {
+      font-size: 0.86rem;
+      color: #758399;
+    }
+
+    @media (min-width: 720px) {
+      .article-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pillars {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .hero {
+        padding: 90px 0 76px;
+      }
+
+      .article-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+
+      .pillars {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .header-action {
+        padding: 9px 12px;
+        font-size: 0.82rem;
+      }
+
+      .brand-text {
+        font-size: 1rem;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="DRIVERLINE home">
+        <img src="assets/driverline-logo.png" alt="">
+        <span class="brand-text">DRIVER<span class="line">LINE</span></span>
+      </a>
+
+      <!-- Replace # with your DRIVERLINE WhatsApp Channel link -->
+      <a class="header-action" href="#whatsapp">Follow on WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="kicker">Independent UK online magazine</p>
+          <h1>DRIVER<span class="line">LINE</span></h1>
+          <p class="motto">
+            DRIVERLINE is about the people behind logistics, not just the vehicles, fleets and technology.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#current-edition">View the current edition</a>
+            <a class="btn btn-secondary" href="#about">What DRIVERLINE stands for</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="current-edition">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Current edition</h2>
+          <p>
+            DRIVERLINE is being prepared for launch. Edition 01 will put the working lives of professional drivers at the centre of the story.
+          </p>
+        </div>
+
+        <article class="edition-card">
+          <div class="edition-top">
+            <span class="edition-label">Edition 01 • Coming soon</span>
+            <h3>The first DRIVERLINE edition is on its way</h3>
+          </div>
+          <div class="edition-body">
+            <p>
+              We will cover driver voice, wellbeing, working conditions, safety, training, technology and better logistics management. Fewer articles, stronger reporting and practical value for the people doing the work.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="featured">
+      <div class="container">
+        <div class="section-heading">
+          <h2>What you will find in DRIVERLINE</h2>
+          <p>
+            Articles will be written for drivers and logistics professionals, with clear language, validated sources and a practical focus.
+          </p>
+        </div>
+
+        <div class="article-grid">
+
+          <article class="article-card">
+            <div class="article-image">
+              <span>Driver Voice</span>
+            </div>
+            <div class="article-content">
+              <div class="article-category">Driver Voice</div>
+              <h3>What is actually happening on the road?</h3>
+              <p>
+                Real experiences from professional drivers, including the good, the difficult and the things that could be done better.
+              </p>
+              <a class="article-link" href="#about">About DRIVERLINE →</a>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <div class="article-image">
+              <span>Working Conditions</span>
+            </div>
+            <div class="article-content">
+              <div class="article-category">Working Conditions &amp; Fair Treatment</div>
+              <h3>Looking beyond targets and route sheets</h3>
+              <p>
+                Examining workload, scheduling, respect, recognition and how operational decisions affect the people expected to deliver them.
+              </p>
+              <a class="article-link" href="#pillars">Our editorial focus →</a>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <div class="article-image">
+              <span>Better Management</span>
+            </div>
+            <div class="article-content">
+              <div class="article-category">Better Logistics Management</div>
+              <h3>Understanding the decision from both sides</h3>
+              <p>
+                Helping readers understand why decisions are made, the pressures behind them and what good management practice can look like.
+              </p>
+              <a class="article-link" href="#about">Why this matters →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+
+        <div class="about-copy">
+          <div class="section-heading">
+            <h2>About DRIVERLINE</h2>
+          </div>
+
+          <p>
+            DRIVERLINE is an independent online magazine for professional drivers and logistics managers across the UK.
+          </p>
+
+          <p>
+            The driver remains at the centre of the publication. We look at working conditions, wellbeing, safety, workload, technology, management, training, recognition, careers and the everyday realities of frontline logistics.
+          </p>
+
+          <p>
+            DRIVERLINE is not anti-management or anti-employer. Where problems exist, we want to understand the driver's experience, examine why the problem exists and consider what better practice could look like.
+          </p>
+        </div>
+
+        <div class="principles" aria-label="DRIVERLINE editorial principles">
+          <div class="principle">Understand the driver's experience.</div>
+          <div class="principle">Examine why the problem exists.</div>
+          <div class="principle">Consider what better practice could look like.</div>
+          <div class="principle">If we present something as fact, we should be able to show readers why we believe it is true.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section-soft" id="pillars">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Our editorial focus</h2>
+          <p>
+            DRIVERLINE concentrates on seven areas that affect the people behind logistics.
+          </p>
+        </div>
+
+        <div class="pillars">
+          <div class="pillar">Driver Voice</div>
+          <div class="pillar">Driver Wellbeing</div>
+          <div class="pillar">Working Conditions &amp; Fair Treatment</div>
+          <div class="pillar">Safety &amp; The Working Environment</div>
+          <div class="pillar">Skills, Training &amp; Career Development</div>
+          <div class="pillar">Technology Through the Driver's Eyes</div>
+          <div class="pillar">Better Logistics Management</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="whatsapp">
+      <div class="container">
+        <div class="signup">
+          <h2>Follow DRIVERLINE on WhatsApp</h2>
+          <p>
+            New articles will be shared through the DRIVERLINE WhatsApp Channel. See an interesting headline, tap once and go directly to the full article.
+          </p>
+
+          <!-- Replace # below with your DRIVERLINE WhatsApp Channel URL -->
+          <a class="btn btn-primary" href="#" aria-label="Follow DRIVERLINE on WhatsApp">
+            WhatsApp Channel link to be added
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">DRIVER<span class="line">LINE</span></div>
+        <div class="small-note">The people behind logistics, not just the vehicles, fleets and technology.</div>
+      </div>
+
+      <div class="small-note">
+        © <span id="year"></span> DRIVERLINE. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
